@@ -182,6 +182,7 @@
   .services-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 60px; }
   .service-detail-card { background: white; padding: 40px; box-shadow: 0 2px 14px rgba(10,20,64,0.05); transition: box-shadow .2s, transform .2s; position: relative; }
   .service-detail-card:hover { box-shadow: 0 16px 30px rgba(10,20,64,0.1); transform: translateY(-2px); }
+  .service-detail-card.span-2 { grid-column: span 2; }
   .sdc-index { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--slate-light); letter-spacing: 1px; margin-bottom: 10px; }
   .sdc-title { font-size: 24px; margin-bottom: 12px; }
   .service-detail-card p { font-size: 14.5px; line-height: 1.8; color: var(--slate); }
@@ -332,6 +333,7 @@
     .feature-media { flex: 1; width: 100%; }
     .feature-media img { height: 280px; }
     .mv-grid, .life-grid, .culture-grid, .pride-grid, .services-detail-grid { grid-template-columns: 1fr; }
+    .service-detail-card.span-2 { grid-column: span 1; }
     .benefits-grid { grid-template-columns: 1fr 1fr; }
     .capability-split { grid-template-columns: 1fr; }
     .capability-panel { padding: 40px 24px; }
