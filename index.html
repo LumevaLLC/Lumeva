@@ -7,825 +7,319 @@
 <meta name="description" content="Lumeva LLC is a veteran-owned, mission-driven government contractor delivering SETA, cybersecurity, program management, and strategic policy solutions to federal, state, and local agencies.">
 <link rel="canonical" href="https://lumeva.tech/">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #1a1254;
-    --purple: #6b6491;
-    --light-purple: #8e87b8;
-    --accent: #2e237a;
+    --navy: #0a1440;
+    --navy-deep: #050a24;
+    --ink: #0c1024;
+    --blue: #3457e6;
+    --blue-light: #6c8bff;
+    --indigo: #241653;
+    --slate: #4b5169;
+    --slate-light: #8388a0;
+    --line: #e6e7f0;
+    --bg-soft: #f6f7fb;
     --white: #ffffff;
-    --light-bg: #e8eaf0;
-    --text-dark: #1a1254;
-    --text-body: #3a3560;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Barlow', sans-serif; color: var(--text-body); overflow-x: hidden; }
+  body { font-family: 'Inter', sans-serif; color: var(--slate); overflow-x: hidden; background: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  h1, h2, h3, h4, h5 { font-family: 'Barlow Condensed', sans-serif; color: var(--navy); font-weight: 800; line-height: 1.05; letter-spacing: -0.01em; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--blue); }
+  .eyebrow.on-dark { color: var(--blue-light); }
+  .eyebrow.center { justify-content: center; }
+  .eyebrow.center::before { display: none; }
+
+  .section-title { font-size: 40px; text-transform: uppercase; margin-bottom: 20px; }
+  .accent-bar { width: 64px; height: 4px; background: linear-gradient(90deg, var(--indigo), var(--blue)); margin: 0 0 24px; }
+  .accent-bar.center { margin: 0 auto 24px; }
+  .lede { font-size: 17px; color: var(--slate); max-width: 620px; line-height: 1.8; }
+  .center-head { text-align: center; }
+  .center-head .lede { margin: 0 auto; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: linear-gradient(135deg, var(--indigo), var(--navy));
+    color: white; padding: 15px 34px; font-size: 13px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none;
+    border: none; cursor: pointer; transition: all .25s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(10,20,64,0.25); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white;
+    padding: 14px 32px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; text-decoration: none; transition: all .25s;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+  .link-arrow {
+    display: inline-flex; align-items: center; gap: 8px; color: var(--navy);
+    font-weight: 700; font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    text-decoration: none; border-bottom: 2px solid var(--blue); padding-bottom: 4px; transition: gap .2s;
+  }
+  .link-arrow:hover { gap: 14px; }
 
   /* NAV */
   nav {
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 60px;
-    height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background: var(--navy); display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 76px; position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
-  .logo img { height: 44px; width: auto; }
-  nav ul { list-style: none; display: flex; gap: 32px; }
+  .logo img { height: 34px; width: auto; }
+  nav ul { list-style: none; display: flex; align-items: center; gap: 30px; }
   nav ul a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding-bottom: 4px;
-    transition: color 0.2s;
+    color: rgba(255,255,255,0.85); text-decoration: none; font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; position: relative; padding-bottom: 4px; transition: color .2s;
   }
   nav ul a::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: white;
-    transition: width 0.3s;
+    content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--blue-light); transition: width .3s;
   }
+  nav ul a:hover, nav ul a.active { color: white; }
   nav ul a:hover::after, nav ul a.active::after { width: 100%; }
+  .nav-cta {
+    background: var(--blue); color: white !important; padding: 10px 22px !important;
+    font-weight: 700 !important;
+  }
+  .nav-cta::after { display: none; }
+  .nav-cta:hover { background: var(--blue-light); }
+  .nav-toggle {
+    display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px;
+  }
+  .nav-toggle span { width: 24px; height: 2px; background: white; display: block; }
 
   /* HERO */
   #home {
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: #04021a;
+    min-height: 660px; display: flex; align-items: center; position: relative; overflow: hidden;
   }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  .hero-photo {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: url('images/hero-earth.jpg'); background-size: cover; background-position: center;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
     background:
-      radial-gradient(ellipse 80% 60% at 10% 60%, rgba(26,18,84,0.95) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 80% at 90% 10%, rgba(46,35,122,0.7) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 40% at 75% 75%, rgba(74,144,217,0.15) 0%, transparent 50%),
-      linear-gradient(160deg, #04021a 0%, #0d0842 35%, #1a1254 60%, #08052a 100%);
+      linear-gradient(180deg, rgba(5,10,36,0.88) 0%, rgba(5,10,36,0.82) 45%, rgba(5,10,36,0.96) 100%),
+      linear-gradient(100deg, rgba(5,10,36,0.55) 0%, transparent 55%);
   }
-  .hero-grid {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background-image:
-      linear-gradient(rgba(142,135,184,0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(142,135,184,0.07) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-  }
-  .hero-glow-left {
-    position: absolute;
-    left: -100px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(46,35,122,0.6) 0%, transparent 70%);
-    z-index: 1;
-    animation: pulse-glow 4s ease-in-out infinite alternate;
-  }
-  .hero-glow-right {
-    position: absolute;
-    right: -50px;
-    top: 20%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(74,144,217,0.2) 0%, transparent 70%);
-    z-index: 1;
-    animation: pulse-glow 6s ease-in-out infinite alternate-reverse;
-  }
-  .hero-line {
-    position: absolute;
-    left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(142,135,184,0.3), rgba(74,144,217,0.5), rgba(142,135,184,0.3), transparent);
-    z-index: 2;
-  }
-  .hero-line-top { top: 18%; }
-  .hero-line-bottom { bottom: 18%; }
-  @keyframes pulse-glow {
-    from { opacity: 0.6; transform: translateY(-50%) scale(1); }
-    to { opacity: 1; transform: translateY(-50%) scale(1.15); }
-  }
-  .hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    padding: 80px 60px;
-    max-width: 960px;
-  }
+  .hero-content { position: relative; z-index: 3; padding: 110px 0 70px; max-width: 760px; }
   .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: rgba(142,135,184,0.9);
-    border: 1px solid rgba(142,135,184,0.25);
-    padding: 7px 20px;
-    margin-bottom: 36px;
-    background: rgba(142,135,184,0.05);
-  }
-  .hero-tag::before, .hero-tag::after {
-    content: '';
-    width: 20px;
-    height: 1px;
-    background: rgba(142,135,184,0.5);
+    display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.25); padding: 8px 18px; margin-bottom: 32px;
   }
   .hero-content h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 80px;
-    font-weight: 800;
-    color: white;
-    line-height: 0.95;
-    margin-bottom: 28px;
-    letter-spacing: -1px;
-    text-shadow: 0 0 80px rgba(74,144,217,0.3);
+    font-size: 72px; font-weight: 800; color: white; line-height: 0.98; margin-bottom: 26px;
+    text-transform: uppercase; letter-spacing: -0.5px;
   }
-  .hero-content h1 .accent-line {
-    display: block;
-    background: linear-gradient(90deg, #8e87b8, #4a90d9, #8e87b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .hero-content h1 em {
+    display: block; font-style: normal;
+    background: linear-gradient(90deg, var(--blue-light), #9fb2ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
-  .hero-divider {
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--light-purple), #4a90d9);
-    margin: 0 auto 28px;
-  }
-  .hero-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.8;
-    max-width: 580px;
-    margin: 0 auto 44px;
-    font-weight: 400;
-    letter-spacing: 0.2px;
-  }
-  .hero-buttons { display: flex; gap: 16px; justify-content: center; align-items: center; }
-  .btn-primary {
-    background: linear-gradient(135deg, #2e237a, #1a1254);
-    color: white;
-    padding: 15px 38px;
-    font-size: 13px;
-    font-weight: 700;
-    border: 1px solid rgba(142,135,184,0.4);
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: all 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
-  .btn-primary:hover { border-color: rgba(142,135,184,0.8); transform: translateY(-1px); box-shadow: 0 8px 30px rgba(46,35,122,0.5); }
-  .btn-primary:hover::before { opacity: 1; }
-  .btn-ghost {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 15px 30px;
-    transition: all 0.25s;
-    background: rgba(255,255,255,0.03);
-  }
-  .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: white; background: rgba(255,255,255,0.06); }
-  .hero-stats {
-    display: flex;
-    gap: 0;
-    justify-content: center;
-    margin-top: 56px;
-    border-top: 1px solid rgba(142,135,184,0.15);
-    padding-top: 40px;
-  }
-  .hero-stat {
-    flex: 1;
-    max-width: 180px;
-    text-align: center;
-    padding: 0 20px;
-    border-right: 1px solid rgba(142,135,184,0.15);
-  }
+  .hero-sub { font-size: 18px; color: rgba(255,255,255,0.68); line-height: 1.8; max-width: 560px; margin-bottom: 40px; }
+  .hero-buttons { display: flex; gap: 18px; align-items: center; margin-bottom: 64px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px; max-width: 680px; }
+  .hero-stat { flex: 1; padding-right: 24px; border-right: 1px solid rgba(255,255,255,0.15); }
   .hero-stat:last-child { border-right: none; }
-  .hero-stat .num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: white;
-    display: block;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .hero-stat .label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(142,135,184,0.7);
-  }
+  .hero-stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 800; color: white; display: block; line-height: 1; margin-bottom: 6px; }
+  .hero-stat .label { font-size: 10.5px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.55); }
 
-  /* SECTIONS */
-  .section-label {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-body);
-    margin-bottom: 10px;
-  }
-  .section-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 42px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 24px;
-  }
+  /* FEATURE ROW (image + text alternating) */
+  .feature-row { display: flex; align-items: center; gap: 72px; padding: 100px 0; }
+  .feature-row.reverse { flex-direction: row-reverse; }
+  .feature-media { flex: 0 0 44%; }
+  .feature-media img { width: 100%; height: 420px; object-fit: cover; }
+  .feature-text { flex: 1; }
+  .feature-text p { margin-bottom: 16px; font-size: 16px; }
+  .feature-text p:last-of-type { margin-bottom: 28px; }
 
-  /* INTRO BOX */
-  .intro-section { display: flex; justify-content: center; padding: 60px 60px 0; }
-  .intro-box {
-    background: var(--navy);
-    color: white;
-    padding: 40px 50px;
-    max-width: 780px;
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  /* WHO WE ARE */
-  #who { padding: 80px 60px; max-width: 1200px; margin: 0 auto; }
-  #who img.team-photo { width: 440px; height: 340px; object-fit: cover; flex-shrink: 0; }
-  .who-top { display: flex; align-items: center; gap: 80px; margin-bottom: 60px; }
-  .who-text p { font-size: 16px; line-height: 1.8; margin-bottom: 16px; color: #444; }
+  /* MISSION / VISION */
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 0 0 100px; }
+  .mv-card { border: 1px solid var(--line); padding: 40px; }
+  .mv-card h4 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; font-family: 'Inter', sans-serif; font-weight: 700; }
+  .mv-card p { font-size: 16px; color: var(--slate); }
 
   /* LEADERSHIP */
-  .leadership { margin-top: 60px; }
-  .leadership h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 30px;
-    border-bottom: 3px solid var(--navy);
-    padding-bottom: 12px;
-  }
+  .leadership-head { margin-bottom: 44px; }
   .leader-card {
-    display: flex;
-    gap: 30px;
-    background: #f7f7f9;
-    padding: 30px;
-    margin-bottom: 24px;
-    border-left: 4px solid var(--navy);
+    display: flex; gap: 34px; padding: 40px 0; border-top: 1px solid var(--line);
   }
-  .leader-photo {
-    width: 130px;
-    height: 160px;
-    object-fit: cover;
-    object-position: top center;
-    flex-shrink: 0;
-    filter: grayscale(20%);
+  .leader-card:last-child { border-bottom: 1px solid var(--line); }
+  .avatar {
+    flex: 0 0 84px; width: 84px; height: 84px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--indigo), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 1px;
   }
-  .leader-info h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 4px;
-  }
-  .leader-info .title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--purple);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-  .leader-meta {
-    font-size: 13px;
-    color: var(--purple);
-    font-weight: 500;
-    margin-top: 2px;
-    margin-bottom: 4px;
-  }
-  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
-  .cert-col {}
-  .cert-heading {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--purple);
-    margin-bottom: 8px;
-    border-bottom: 1px solid #e0e0e8;
-    padding-bottom: 6px;
-  }
-  .cert-list { list-style: none; font-size: 13px; line-height: 1.9; color: #444; }
-  .cert-list li { padding-left: 12px; position: relative; }
-  .cert-list li::before { content: '›'; position: absolute; left: 0; color: var(--purple); font-weight: 700; }
+  .leader-info h4 { font-size: 24px; margin-bottom: 4px; }
+  .leader-info .title { font-size: 13px; font-weight: 700; color: var(--blue); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 10px; font-family: 'Inter', sans-serif; }
+  .leader-meta { font-size: 13px; color: var(--slate-light); font-weight: 500; margin-bottom: 14px; }
+  .leader-info p.bio { font-size: 15px; line-height: 1.8; color: var(--slate); }
 
-  /* WHAT WE DO */
-  #services { padding: 80px 60px; background: #f7f7f9; }
-  #services .section-title { text-align: center; }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    max-width: 1100px;
-    margin: 0 auto 16px;
-  }
-  .services-grid-bottom {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 825px;
-    margin: 0 auto 50px;
-  }
-  .service-card {
-    background: var(--purple);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    padding: 60px 20px;
-    min-height: 180px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-  }
-  .service-card:hover { background: var(--navy); transform: translateY(-4px); }
+  /* SERVICES */
+  #services { padding: 110px 0; background: var(--bg-soft); }
+  .services-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 60px; }
+  .service-detail-card { background: white; padding: 40px; border-top: 3px solid transparent; transition: border-color .2s, transform .2s; position: relative; }
+  .service-detail-card:hover { border-top-color: var(--blue); transform: translateY(-2px); }
+  .sdc-index { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--slate-light); letter-spacing: 1px; margin-bottom: 10px; }
+  .sdc-title { font-size: 24px; margin-bottom: 12px; }
+  .service-detail-card p { font-size: 14.5px; line-height: 1.8; color: var(--slate); }
 
-  /* SERVICE DETAIL CARDS */
-  .services-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    max-width: 1100px;
-    margin: 0 auto 2px;
-    background: #e0e0ea;
-  }
-  .service-detail-card {
-    background: white;
-    padding: 36px 36px;
-    border-top: 3px solid transparent;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .service-detail-card:hover {
-    border-top-color: var(--navy);
-    transform: translateY(-2px);
-  }
-  .sdc-title {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-  }
-  .service-detail-card p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #555;
+  .agency-strip { text-align: center; margin-bottom: 70px; }
+  .agency-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--slate-light); margin-bottom: 22px; }
+  .agency-pills { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .agency-pill {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--navy); border: 1px solid var(--line); background: white;
+    padding: 10px 20px;
   }
 
-  /* EXPERIENCE BANNER */
-  .experience-banner {
-    background: var(--navy);
-    padding: 36px 60px;
-    max-width: 1100px;
-    margin: 0 auto 0;
-  }
-  .exp-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(142,135,184,0.7);
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .exp-logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0;
-  }
-  .exp-item {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.75);
-    padding: 0 20px;
-    transition: color 0.2s;
-  }
-  .exp-item:hover { color: white; }
-  .exp-divider {
-    width: 1px;
-    height: 20px;
-    background: rgba(142,135,184,0.3);
-  }
-  .capability-box {
-    background: var(--navy);
-    color: white;
-    padding: 50px 60px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .capability-box h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 24px;
-    color: white;
-  }
-  .capability-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .cap-col h4 {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--light-purple);
-    margin-bottom: 14px;
-  }
-  .cap-col ul { list-style: none; }
-  .cap-col ul li {
-    font-size: 14px;
-    line-height: 1.7;
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-left: 14px;
-    position: relative;
-  }
-  .cap-col ul li::before {
-    content: '►';
-    position: absolute;
-    left: 0;
-    font-size: 10px;
-    color: var(--light-purple);
-    top: 8px;
-  }
-  .naics-row {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-  }
-  .naics-row strong { color: white; }
-  .key-info {
-    margin-top: 20px;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    font-size: 13px;
-    color: rgba(255,255,255,0.8);
-    padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-  }
-  .key-info span strong { color: white; display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+  /* CAPABILITY SPLIT */
+  .capability-split { display: grid; grid-template-columns: 1.2fr 1fr; background: var(--navy); }
+  .capability-panel { padding: 60px; color: white; }
+  .capability-panel h3 { color: white; font-size: 30px; text-transform: uppercase; margin-bottom: 30px; }
+  .cap-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .cap-cols h5 { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 14px; font-family: 'Inter', sans-serif; font-weight: 700; }
+  .cap-cols ul { list-style: none; }
+  .cap-cols ul li { font-size: 13.5px; line-height: 1.7; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-left: 14px; position: relative; color: rgba(255,255,255,0.85); }
+  .cap-cols ul li::before { content: ''; position: absolute; left: 0; top: 15px; width: 5px; height: 5px; background: var(--blue-light); }
+  .capability-image { position: relative; }
+  .capability-image img { width: 100%; height: 100%; object-fit: cover; min-height: 420px; }
+  .capability-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,20,64,0.15), rgba(5,10,36,0.65)); }
+  .key-info-bar { grid-column: 1 / -1; background: var(--navy-deep); padding: 26px 60px; display: flex; flex-wrap: wrap; gap: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .key-info-bar span { font-size: 13px; color: rgba(255,255,255,0.75); }
+  .key-info-bar span strong { display: block; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 4px; }
+  .naics-line { grid-column: 1 / -1; background: var(--navy-deep); padding: 0 60px 26px; font-size: 13px; color: rgba(255,255,255,0.65); }
+  .naics-line strong { color: white; }
 
-  /* LIFE AT LUMEVA */
-  #life { padding: 80px 60px; background: white; }
-  #life .section-title { margin-bottom: 50px; }
-  .life-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto 60px; }
-  .life-card {
-    background: #f7f7f9;
-    padding: 30px;
-    border-top: 4px solid var(--purple);
-  }
-  .life-card h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-  }
-  .life-card p { font-size: 15px; line-height: 1.8; color: #555; }
+  /* CARD GRID (life / culture / benefits) */
+  #life { padding: 110px 0; }
+  .life-grid, .culture-grid, .pride-grid, .benefits-grid { display: grid; gap: 24px; }
+  .life-grid { grid-template-columns: 1fr 1fr; margin-bottom: 90px; }
+  .culture-grid, .pride-grid { grid-template-columns: repeat(3, 1fr); }
+  .card-flat { border: 1px solid var(--line); padding: 32px; transition: border-color .2s, transform .2s; }
+  .card-flat:hover { border-color: var(--blue); transform: translateY(-3px); }
+  .card-flat h4, .card-flat h5 { font-size: 21px; margin-bottom: 12px; }
+  .card-flat p { font-size: 15px; color: var(--slate); }
+  .block-head { margin-bottom: 36px; }
+  .block-head h3 { font-size: 30px; text-transform: uppercase; }
 
-  /* CULTURE */
-  .culture-section { max-width: 1100px; margin: 0 auto 60px; }
-  .culture-section h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 30px;
-  }
-  .culture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .culture-card {
-    padding: 28px;
-    border: 1px solid #e0e0e8;
-  }
-  .culture-card h5 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .culture-card p { font-size: 14px; line-height: 1.7; color: #555; }
+  .pride-card { border: 1px solid var(--line); padding: 32px; }
+  .pride-card .num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 800; color: var(--blue); opacity: 0.35; line-height: 1; margin-bottom: 10px; }
+  .pride-card p { font-size: 14.5px; color: var(--slate); line-height: 1.8; }
 
-  /* GIVING BACK */
-  .giving-section {
-    background: var(--navy);
-    color: white;
-    padding: 50px 60px;
-    max-width: 1100px;
-    margin: 0 auto 60px;
-  }
-  .giving-section h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 28px;
-    font-weight: 800;
-    margin-bottom: 16px;
-  }
-  .giving-section p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.85); }
-
-  /* POINTS OF PRIDE */
-  .pride-section { max-width: 1100px; margin: 0 auto 60px; }
-  .pride-section h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 30px;
-  }
-  .pride-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .pride-card {
-    background: var(--purple);
-    color: white;
-    padding: 30px;
-  }
-  .pride-card .num {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 48px;
-    font-weight: 800;
-    opacity: 0.3;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .pride-card p { font-size: 14px; line-height: 1.8; }
+  .giving-section { background: var(--navy); color: white; padding: 56px 60px; margin-bottom: 90px; }
+  .giving-section h3 { color: white; font-size: 28px; text-transform: uppercase; margin-bottom: 14px; }
+  .giving-section p { font-size: 16px; color: rgba(255,255,255,0.75); max-width: 720px; }
 
   /* BENEFITS */
-  #benefits { padding: 80px 60px; background: #f7f7f9; }
-  #benefits .section-title { text-align: center; margin-bottom: 50px; }
-  .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1100px; margin: 0 auto; }
-  .benefit-block h4 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 2px solid var(--navy);
-    padding-bottom: 8px;
-  }
-  .benefit-item {
-    display: flex;
-    align-items: flex-start;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e8;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #444;
-  }
-  .benefit-item::before {
-    content: '›';
-    color: var(--purple);
-    font-weight: 700;
-    font-size: 18px;
-    margin-right: 10px;
-    flex-shrink: 0;
-    line-height: 1.5;
-  }
+  #benefits { padding: 110px 0; background: var(--bg-soft); }
+  .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+  .benefit-block h4 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 700; color: var(--navy); }
+  .benefit-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--slate); line-height: 1.6; }
+  .benefit-item::before { content: '›'; color: var(--blue); font-weight: 700; }
 
   /* CAREERS */
-  #careers { background: var(--light-purple); padding: 80px 60px; }
-  .careers-inner { max-width: 1100px; margin: 0 auto; }
-  .life-hero {
-    margin-bottom: 60px;
-  }
-  .life-hero h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 52px;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 20px;
-  }
-  .life-hero p { color: white; font-size: 16px; line-height: 1.8; max-width: 600px; margin-bottom: 30px; }
-  .jobs-section {
-    background: white;
-    padding: 50px;
-    display: flex;
-    gap: 60px;
-    align-items: center;
-  }
-  .jobs-left { flex: 1; }
-  .jobs-right { flex: 1; }
-  .jobs-right .sublabel {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-body);
-    margin-bottom: 12px;
-  }
-  .jobs-right h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--text-dark);
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-  .jobs-right p { font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 30px; }
+  #careers { padding: 110px 0; background: var(--navy); }
+  .careers-flex { display: flex; align-items: center; gap: 70px; }
+  .careers-flex img { width: 46%; height: 380px; object-fit: cover; flex-shrink: 0; }
+  .careers-copy h2 { color: white; font-size: 44px; text-transform: uppercase; margin-bottom: 22px; }
+  .careers-copy p { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 30px; max-width: 460px; }
 
   /* CONTACT */
-  #contact { padding: 80px 60px; background: white; }
-  #contact .section-title { text-align: center; margin-bottom: 30px; }
-  .contact-info { display: flex; gap: 40px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
-  .contact-info-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; }
-  .ci-label { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--purple); min-width: 54px; margin-top: 2px; }
-  .contact-inner { max-width: 700px; margin: 0 auto; }
+  #contact { padding: 110px 0; }
+  .contact-info { display: flex; gap: 50px; justify-content: center; margin-bottom: 60px; flex-wrap: wrap; }
+  .contact-info-item { font-size: 15px; }
+  .ci-label { display: block; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--blue); margin-bottom: 6px; }
+  .contact-form { max-width: 680px; margin: 0 auto; }
+  .contact-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 14px 18px;
-    border: 1px solid #ddd;
-    font-family: 'Barlow', sans-serif;
-    font-size: 15px;
-    margin-bottom: 16px;
-    outline: none;
-    transition: border-color 0.2s;
+    width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid var(--line);
+    font-family: 'Inter', sans-serif; font-size: 15px; margin-bottom: 24px; outline: none; transition: border-color .2s; background: transparent;
   }
-  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--navy); }
-  .contact-form textarea { height: 140px; resize: vertical; }
-  .contact-form button {
-    background: var(--navy);
-    color: white;
-    padding: 14px 40px;
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-    transition: background 0.2s;
-  }
-  .contact-form button:hover { background: var(--accent); }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--blue); }
+  .contact-form textarea { height: 120px; resize: vertical; grid-column: 1 / -1; }
+  .contact-form button { margin-top: 8px; }
 
   /* NEWSLETTER */
-  .newsletter {
-    background: #f0f0f2;
-    padding: 50px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-  }
-  .newsletter h3 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-  .newsletter p { font-size: 15px; color: #555; }
+  .newsletter { background: var(--bg-soft); padding: 56px 0; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .newsletter h3 { font-size: 26px; text-transform: uppercase; margin-bottom: 6px; }
+  .newsletter p { font-size: 15px; color: var(--slate); }
   .newsletter-form { display: flex; flex-shrink: 0; }
-  .newsletter-form input {
-    padding: 14px 20px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    width: 300px;
-    outline: none;
-    font-family: 'Barlow', sans-serif;
-  }
-  .newsletter-form button {
-    background: var(--navy);
-    color: white;
-    padding: 14px 28px;
-    border: none;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Barlow', sans-serif;
-  }
+  .newsletter-form input { padding: 14px 20px; border: 1px solid var(--line); font-size: 14px; width: 280px; outline: none; font-family: 'Inter', sans-serif; }
+  .newsletter-form button { background: var(--navy); color: white; padding: 14px 26px; border: none; font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; }
 
   /* FOOTER */
-  footer { background: var(--navy); color: white; padding: 60px 60px 30px; }
-  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1fr; gap: 60px; margin-bottom: 50px; }
-  .footer-logo img { height: 40px; width: auto; margin-bottom: 16px; display: block; }
-  .footer-about p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.75); margin-bottom: 20px; }
-  .footer-links h4, .footer-contact h4 {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--light-purple);
-    text-transform: uppercase;
-    margin-bottom: 20px;
+  footer { background: var(--navy-deep); color: white; padding: 70px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1.4fr 1.3fr; gap: 50px; margin-bottom: 56px; }
+  .footer-logo img { height: 32px; width: auto; margin-bottom: 18px; }
+  .footer-about p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.6); margin-bottom: 22px; }
+  .footer-links h4, .footer-contact h4, .footer-badges h4 {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--blue-light); text-transform: uppercase; margin-bottom: 22px;
   }
   .footer-links ul { list-style: none; }
-  .footer-links li { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-links li { margin-bottom: 13px; }
+  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 14px; transition: color .2s; }
   .footer-links a:hover { color: white; }
-  .footer-contact-item {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    font-size: 14px;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.6;
-  }
-  .footer-badges { display: flex; flex-direction: column; gap: 12px; }
-  .badge-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .footer-badges img { height: 75px; width: auto; object-fit: contain; }
-  .badge-light-bg {
-    background: white;
-    border-radius: 4px;
-    padding: 4px;
-    height: 75px;
-    width: auto;
-    object-fit: contain;
-    display: inline-block;
-  }
+  .footer-contact-item { margin-bottom: 18px; font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .footer-contact-item .ci-label { color: var(--blue-light); }
+  .badge-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .badge-chip { background: white; padding: 6px; height: 64px; display: flex; align-items: center; }
+  .badge-chip img { height: 100%; width: auto; object-fit: contain; }
   .linkedin-icon {
-    width: 32px; height: 32px;
-    background: rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 14px; color: white;
-    text-decoration: none;
-    transition: background 0.2s;
+    width: 34px; height: 34px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 13px; color: white; text-decoration: none; transition: background .2s;
   }
-  .linkedin-icon:hover { background: rgba(255,255,255,0.3); }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.15);
-    padding-top: 24px;
-    text-align: center;
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-  }
+  .linkedin-icon:hover { background: var(--blue); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 13px; color: rgba(255,255,255,0.45); }
+  .footer-bottom a { color: rgba(255,255,255,0.65); text-decoration: none; }
+  .footer-bottom a:hover { color: white; }
 
-  /* Animations */
-  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    nav ul { gap: 16px; }
-    .who-top { flex-direction: column; padding: 0; }
-    #who img.team-photo { width: 100%; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-    .services-grid-bottom { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
-    .capability-grid { grid-template-columns: 1fr; }
-    .life-grid, .culture-grid, .pride-grid, .benefits-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .newsletter { flex-direction: column; }
-    .hero-content { padding: 40px 30px; margin: 0 20px; }
-    .hero-content h1 { font-size: 38px; }
-    .jobs-section { flex-direction: column; }
-    #who, #services, #life, #benefits, #careers, #contact { padding: 50px 24px; }
-    .intro-section { padding: 40px 24px 0; }
-    .capability-box { padding: 40px 24px; }
-    .giving-section { padding: 40px 24px; }
+    nav { padding: 0 20px; }
+    .nav-toggle { display: flex; }
+    nav ul {
+      display: none; position: absolute; top: 76px; left: 0; right: 0; background: var(--navy);
+      flex-direction: column; align-items: flex-start; gap: 0; padding: 10px 20px 20px;
+      border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    nav ul.open { display: flex; }
+    nav ul li { width: 100%; }
+    nav ul a { display: block; padding: 14px 0; width: 100%; }
+    .nav-cta { display: inline-block; margin-top: 10px; }
+    .hero-content h1 { font-size: 44px; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    .hero-stat { flex: 1 1 40%; border-right: none; padding-right: 0; }
+    .feature-row, .feature-row.reverse { flex-direction: column; padding: 60px 0; gap: 36px; }
+    .feature-media { flex: 1; width: 100%; }
+    .feature-media img { height: 280px; }
+    .mv-grid, .life-grid, .culture-grid, .pride-grid, .services-detail-grid { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .capability-split { grid-template-columns: 1fr; }
+    .capability-panel { padding: 40px 24px; }
+    .cap-cols { grid-template-columns: 1fr; }
+    .key-info-bar, .naics-line { padding-left: 24px; padding-right: 24px; }
+    .careers-flex { flex-direction: column; }
+    .careers-flex img { width: 100%; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .newsletter { flex-direction: column; align-items: flex-start; padding: 40px 24px; }
+    .contact-form-row { grid-template-columns: 1fr; }
+    #services, #life, #benefits, #careers, #contact { padding: 70px 0; }
+    .service-detail-card, .capability-panel { padding: 28px; }
   }
 </style>
 </head>
@@ -834,7 +328,7 @@
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="images/logo-white.png" alt="Lumeva" />
+    <a href="#home"><img src="images/logo-white.png" alt="Lumeva" /></a>
   </div>
   <ul>
     <li><a href="#home" class="active">Home</a></li>
@@ -843,90 +337,92 @@
     <li><a href="#life">Life at Lumeva</a></li>
     <li><a href="#benefits">Benefits</a></li>
     <li><a href="#careers">Careers</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-glow-left"></div>
-  <div class="hero-glow-right"></div>
-  <div class="hero-line hero-line-top"></div>
-  <div class="hero-line hero-line-bottom"></div>
-  <div class="hero-content">
-    <div class="hero-tag">Veteran-Owned &nbsp;·&nbsp; TS/SCI Cleared &nbsp;·&nbsp; Federal &amp; Defense</div>
-    <h1>Innovating Solutions,<span class="accent-line">Empowering Communities.</span></h1>
-    <div class="hero-divider"></div>
-    <p class="hero-sub">Delivering mission-critical cybersecurity, Zero Trust strategy, and enterprise risk solutions to government and defense agencies nationwide.</p>
-    <div class="hero-buttons">
-      <a href="#who" class="btn-primary">Learn More</a>
-      <a href="#contact" class="btn-ghost">Contact Us &nbsp;›</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><span class="num">$100M+</span><span class="label">Assets Protected</span></div>
-      <div class="hero-stat"><span class="num">$50M+</span><span class="label">Contract Capture</span></div>
-      <div class="hero-stat"><span class="num">$5M+</span><span class="label">Cost Avoidance</span></div>
-      <div class="hero-stat"><span class="num">10+</span><span class="label">Years Experience</span></div>
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="hero-tag">Veteran-Owned &nbsp;·&nbsp; TS/SCI Cleared &nbsp;·&nbsp; Federal &amp; Defense</div>
+      <h1>Innovating Solutions,<em>Empowering Communities.</em></h1>
+      <p class="hero-sub">Delivering mission-critical cybersecurity, Zero Trust strategy, and enterprise risk solutions to government and defense agencies nationwide.</p>
+      <div class="hero-buttons">
+        <a href="#who" class="btn">Learn More</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">$100M+</span><span class="label">Assets Protected</span></div>
+        <div class="hero-stat"><span class="num">$50M+</span><span class="label">Contract Capture</span></div>
+        <div class="hero-stat"><span class="num">$5M+</span><span class="label">Cost Avoidance</span></div>
+        <div class="hero-stat"><span class="num">10+</span><span class="label">Years Experience</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- INTRO BOX -->
-<div class="intro-section">
-  <div class="intro-box fade-up">
-    <p>Lumeva, a veteran-owned, mission-driven organization founded in 2024, delivers innovative solutions to federal, state, and local government agencies. With expertise in Systems Engineering and Technical Assistance (SETA), cybersecurity, program management, and policy analysis, Lumeva addresses mission-critical challenges with precision and excellence. Backed by advanced certifications and a team holding Top Secret/SCI clearance, we ensure secure, efficient execution of sensitive projects.</p>
-    <br>
-    <a href="Lumeva-Capability-Statement.pdf" class="btn-primary" style="margin-top:10px;" target="_blank">Download Capability Statement</a>
-  </div>
-</div>
-
 <!-- WHO WE ARE -->
 <section id="who">
-  <div class="who-top fade-up">
-    <img class="team-photo" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=880&q=80" alt="Lumeva Team" />
-    <div class="who-text">
-      <div class="section-label">About us</div>
-      <h2 class="section-title">Who We Are</h2>
-      <p>At Lumeva, we value integrity, trust, and excellence. These values are the foundation of our company and guide us in ensuring prompt and quality service in every engagement. We leverage the latest technologies in the market, and our team prides itself on professionalism and the ability to excel at any task, regardless of complexity.</p>
-      <p>Our company embodies the positive aspects of a small business in the government consulting arena: we are small enough to provide direct access to management for employees and clients yet large enough to fulfill our commitments, ensuring our clients feel secure and confident in their partnership with us, and effectively address all client needs.</p>
-      <p>Lumeva, a veteran-owned, mission-driven organization founded in 2024, delivers innovative solutions to federal, state, and local government agencies. Backed by advanced certifications and a team holding Top Secret/SCI clearance, we ensure secure, efficient execution of sensitive projects.</p>
-      <p><strong style="color:var(--text-dark);">Mission:</strong> To empower government and defense agencies with innovative, secure, and efficient solutions that drive mission success while fostering trust, collaboration, and sustainable development.</p>
-      <p><strong style="color:var(--text-dark);">Vision:</strong> To be the leading provider of tailored technical and strategic services for government and defense sectors, setting a benchmark for excellence, innovation, and integrity in the industry.</p>
-      <a href="#services" class="btn-primary" style="margin-top:16px;">Learn More</a>
-    </div>
-  </div>
-
-  <!-- LEADERSHIP -->
-  <div class="leadership fade-up">
-    <h3>Leadership Team</h3>
-
-    <div class="leader-card">
-      <div class="leader-info">
-        <h4>Kokou Donald Daglo</h4>
-        <div class="title">Founder &amp; CEO · Enterprise Risk · Cyber Strategy · Zero Trust</div>
-        <div class="leader-meta">Alexandria, VA &nbsp;|&nbsp; TS/SCI Cleared &nbsp;|&nbsp; SAP &amp; CI Poly Eligible</div>
-        <p style="margin-top:14px;">Kokou Donald Daglo is an enterprise risk and cyber executive with 10+ years of experience leading multimillion-dollar portfolios across defense, intelligence, and federal environments. A United States Air Force veteran and Columbia University enterprise risk leader, Donald founded Lumeva on the belief that mission-driven organizations need partners who pair military discipline with enterprise-level technical expertise. His leadership across defense and federal programs has contributed to more than $50M in contract capture, generated over $5M in cost avoidance through risk mitigation, and helped safeguard mission-critical assets valued at more than $100M. As Founder and CEO, he serves as a trusted advisor to government and defense clients, bringing operational realism, Zero Trust expertise, and the ability to translate complexity into clear, decisive action. Donald holds an active TS/SCI clearance and an advanced certification portfolio spanning enterprise risk governance, cloud architecture, AI governance, and Zero Trust strategy.</p>
-
+  <div class="wrap">
+    <div class="feature-row fade-up">
+      <div class="feature-media"><img src="images/team-photo.jpg" alt="Lumeva team" /></div>
+      <div class="feature-text">
+        <div class="eyebrow">About Us</div>
+        <h2 class="section-title">Who We Are</h2>
+        <p>Lumeva, a veteran-owned, mission-driven organization founded in 2024, delivers innovative solutions to federal, state, and local government agencies. With expertise in Systems Engineering and Technical Assistance (SETA), cybersecurity, program management, and policy analysis, Lumeva addresses mission-critical challenges with precision and excellence.</p>
+        <p>Backed by advanced certifications and a team holding Top Secret/SCI clearance, we ensure secure, efficient execution of sensitive projects. We are small enough to provide direct access to management for employees and clients, yet large enough to fulfill our commitments on the most demanding engagements.</p>
+        <a href="#services" class="link-arrow">Explore Our Services &nbsp;›</a>
       </div>
     </div>
 
-    <div class="leader-card">
-      <div class="leader-info">
-        <h4>Edem Daglo</h4>
-        <div class="title">Vice President</div>
-        <p>Lumeva benefits from the disciplined leadership of Vice President Edem Daglo, whose approach to cybersecurity emphasizes operational realism, collaborative problem-solving, and measurable results. An Army veteran and doctorate-trained Cybersecurity professional, his portfolio spans Authorizing Official, Designating Authorizing Representative (AO/DAR) functions, RMF cybersecurity analysis, and cloud security engineering. Holding TS/SCI with CI Poly and bringing mission experience from the National Geospatial-Intelligence Agency (NGA), Edem fuses governance rigor with modern security architecture to accelerate ATO outcomes, drive Zero Trust adoption, and harden cloud workloads across high-side environments. His leadership ensures Lumeva can anticipate risk, deliver resilient capabilities, and support mission success for defense, intelligence, and civil agencies.</p>
+    <div class="mv-grid fade-up">
+      <div class="mv-card">
+        <h4>Mission</h4>
+        <p>To empower government and defense agencies with innovative, secure, and efficient solutions that drive mission success while fostering trust, collaboration, and sustainable development.</p>
+      </div>
+      <div class="mv-card">
+        <h4>Vision</h4>
+        <p>To be the leading provider of tailored technical and strategic services for government and defense sectors, setting a benchmark for excellence, innovation, and integrity in the industry.</p>
       </div>
     </div>
 
-    <div class="leader-card">
-      <div class="leader-info">
-        <h4>Dr. Xavier Stewart</h4>
-        <div class="title">Brigadier General, U.S. Army (Ret.) - Strategic Advisor</div>
-        <p>Dr. Xavier Stewart is a distinguished leader in homeland defense, national security, and public health, with a proven track record in combating weapons of mass destruction (CWMD). A retired Brigadier General in the U.S. Army, his career reflects an unwavering commitment to advancing defense strategies, intelligence operations, and emergency preparedness at the highest levels.</p>
-        <p style="margin-top:10px;">As Principal of Stewart and Associates, Dr. Stewart provides strategic guidance to the Department of Defense (DoD) and the Intelligence Community, specializing in counter-WMD strategies, risk mitigation, and crisis response. His expertise spans military operations, forensic examination, and public health, making him a trusted authority in security and resilience planning.</p>
-        <p style="margin-top:10px;">Holding a doctorate in Public Health, Dr. Stewart is a Board-Certified Forensic Examiner, Respiratory Care Practitioner, and Nationally Registered EMT. His credentials include Certified Homeland Protection Professional (CHPP) and Registered Protective Officer (RPO), reinforcing his leadership in security, resilience, and emergency preparedness.</p>
+    <!-- LEADERSHIP -->
+    <div class="leadership-head fade-up">
+      <div class="eyebrow">Our People</div>
+      <h3 class="block-head-title" style="font-family:'Barlow Condensed',sans-serif; font-size:32px; text-transform:uppercase; color:var(--navy);">Leadership Team</h3>
+    </div>
+
+    <div class="fade-up">
+      <div class="leader-card">
+        <div class="avatar">KD</div>
+        <div class="leader-info">
+          <h4>Kokou Donald Daglo</h4>
+          <div class="title">Founder &amp; CEO · Enterprise Risk · Cyber Strategy · Zero Trust</div>
+          <div class="leader-meta">Alexandria, VA &nbsp;|&nbsp; TS/SCI Cleared &nbsp;|&nbsp; SAP &amp; CI Poly Eligible</div>
+          <p class="bio">Kokou Donald Daglo is an enterprise risk and cyber executive with 10+ years of experience leading multimillion-dollar portfolios across defense, intelligence, and federal environments. A United States Air Force veteran and Columbia University enterprise risk leader, Donald founded Lumeva on the belief that mission-driven organizations need partners who pair military discipline with enterprise-level technical expertise. His leadership across defense and federal programs has contributed to more than $50M in contract capture, generated over $5M in cost avoidance through risk mitigation, and helped safeguard mission-critical assets valued at more than $100M. Donald holds an active TS/SCI clearance and an advanced certification portfolio spanning enterprise risk governance, cloud architecture, AI governance, and Zero Trust strategy.</p>
+        </div>
+      </div>
+
+      <div class="leader-card">
+        <div class="avatar">ED</div>
+        <div class="leader-info">
+          <h4>Edem Daglo</h4>
+          <div class="title">Vice President</div>
+          <p class="bio">Lumeva benefits from the disciplined leadership of Vice President Edem Daglo, whose approach to cybersecurity emphasizes operational realism, collaborative problem-solving, and measurable results. An Army veteran and doctorate-trained Cybersecurity professional, his portfolio spans Authorizing Official, Designating Authorizing Representative (AO/DAR) functions, RMF cybersecurity analysis, and cloud security engineering. Holding TS/SCI with CI Poly and bringing mission experience from the National Geospatial-Intelligence Agency (NGA), Edem fuses governance rigor with modern security architecture to accelerate ATO outcomes, drive Zero Trust adoption, and harden cloud workloads across high-side environments.</p>
+        </div>
+      </div>
+
+      <div class="leader-card">
+        <div class="avatar">XS</div>
+        <div class="leader-info">
+          <h4>Dr. Xavier Stewart</h4>
+          <div class="title">Brigadier General, U.S. Army (Ret.) · Strategic Advisor</div>
+          <p class="bio">Dr. Xavier Stewart is a distinguished leader in homeland defense, national security, and public health, with a proven track record in combating weapons of mass destruction (CWMD). A retired Brigadier General in the U.S. Army, his career reflects an unwavering commitment to advancing defense strategies, intelligence operations, and emergency preparedness at the highest levels. As Principal of Stewart and Associates, Dr. Stewart provides strategic guidance to the Department of Defense (DoD) and the Intelligence Community, specializing in counter-WMD strategies, risk mitigation, and crisis response. Holding a doctorate in Public Health, Dr. Stewart is a Board-Certified Forensic Examiner, Respiratory Care Practitioner, and Nationally Registered EMT.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -934,219 +430,227 @@
 
 <!-- WHAT WE DO -->
 <section id="services">
-  <div class="section-label" style="text-align:center;">Our Services</div>
-  <h2 class="section-title">What We Do</h2>
+  <div class="wrap">
+    <div class="center-head fade-up" style="margin-bottom:60px;">
+      <div class="eyebrow center">Our Services</div>
+      <h2 class="section-title">What We Do</h2>
+      <div class="accent-bar center"></div>
+    </div>
 
-  <div class="services-detail-grid fade-up">
-    <div class="service-detail-card">
-      <div class="sdc-title">Artificial Intelligence</div>
-      <p>Lumeva harnesses the power of artificial intelligence to transform how government and defense agencies operate. From predictive analytics to automated decision-support systems, we design and deploy AI solutions that enhance mission effectiveness and reduce operational risk. Our team integrates AI capabilities into existing frameworks, ensuring secure, scalable, and responsible adoption aligned with federal standards.</p>
-    </div>
-    <div class="service-detail-card">
-      <div class="sdc-title">Cloud</div>
-      <p>Lumeva delivers secure, scalable cloud solutions tailored to the unique demands of government and defense environments. We architect, migrate, and manage cloud infrastructure across AWS, Azure, and hybrid environments while maintaining strict compliance with FedRAMP, FISMA, and DoD security requirements. Our cloud engineering expertise ensures agencies achieve operational agility without compromising security posture.</p>
-    </div>
-    <div class="service-detail-card">
-      <div class="sdc-title">Data Solutions</div>
-      <p>Lumeva transforms raw data into actionable intelligence through advanced analytics, visualization, and data governance frameworks. Using tools such as SQL and Tableau, we help agencies consolidate disparate data sources, improve decision-making, and drive mission outcomes. Our data solutions are built with security and integrity at the core, ensuring classified and sensitive data is handled with the highest standards.</p>
-    </div>
-    <div class="service-detail-card">
-      <div class="sdc-title">Cyber Operations</div>
-      <p>Lumeva provides end-to-end cybersecurity services designed to protect mission-critical systems and sensitive information from evolving threats. Our capabilities span Zero Trust architecture, RMF implementation, threat hunting, incident response, and continuous monitoring. With a team holding active TS/SCI clearances, we deliver cyber operations that meet the most demanding national security requirements.</p>
-    </div>
-    <div class="service-detail-card">
-      <div class="sdc-title">System Engineering and Assistance</div>
-      <p>Lumeva's SETA services provide government clients with the technical expertise and program support needed to optimize complex systems and achieve mission success. We embed experienced engineers and analysts directly into programs, offering lifecycle support from requirements definition through testing, integration, and sustainment. Our SETA professionals bring hands-on experience from defense and intelligence programs, delivering results with military precision.</p>
-    </div>
-    <div class="service-detail-card">
-      <div class="sdc-title">National Security</div>
-      <p>Lumeva supports the nation's most critical security missions by providing strategic analysis, intelligence support, and technical solutions across defense and intelligence community programs. Our team draws on direct experience with organizations including INSCOM, SOCOM, NGA, NSA, and the FBI to deliver capabilities that address emerging threats and strengthen national resilience. We operate at the intersection of policy, technology, and operations to ensure our clients stay ahead of adversaries.</p>
-    </div>
-    <div class="service-detail-card" style="grid-column: span 2;">
-      <div class="sdc-title">Professional Services</div>
-      <p>Lumeva's professional services practice delivers the program management, policy analysis, and strategic consulting expertise that government agencies need to navigate complex challenges. From managing multimillion-dollar portfolios to crafting regulatory frameworks and organizational transformation strategies, our consultants bring discipline and results-orientation to every engagement. We serve as trusted advisors to senior leadership, translating complex problems into clear, executable solutions.</p>
-    </div>
-  </div>
-
-  <!-- EXPERIENCE BANNER -->
-  <div class="experience-banner fade-up">
-    <div class="exp-label">Agencies &amp; Organizations We Have Served</div>
-    <div class="exp-logos">
-      <div class="exp-item">U.S. Army</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">U.S. Air Force</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">NGA</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">NSA</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">FBI</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">HUD</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">SOCOM</div>
-      <div class="exp-divider"></div>
-      <div class="exp-item">INSCOM</div>
-    </div>
-  </div>
-
-  <!-- CAPABILITY STATEMENT -->
-  <div class="capability-box fade-up">
-    <h3>Capability Statement</h3>
-    <div class="capability-grid">
-      <div class="cap-col">
-        <h4>Core Competencies</h4>
-        <ul>
-          <li>System Engineering and Technical Assistance (SETA): Tailored support to optimize operational performance and enhance mission outcomes</li>
-          <li>Cybersecurity and Risk Mitigation: Robust strategies to protect critical systems and mitigate emerging threats</li>
-          <li>Program and Project Management: Expertise in managing multimillion-dollar initiatives aligned with client objectives</li>
-          <li>Strategic Policy Analysis and Recommendations: Insightful guidance to navigate complex regulatory and operational landscapes</li>
-          <li>Continuity of Operations Planning (COOP): Comprehensive plans to ensure operational resilience during disruptions</li>
-          <li>Advanced Data Analytics and Visualization: Using SQL and Tableau to deliver insights that drive decisions</li>
-          <li>Federal and State Contract Management: Expertise in navigating complex procurement processes</li>
-        </ul>
+    <div class="services-detail-grid fade-up">
+      <div class="service-detail-card">
+        <div class="sdc-index">01</div>
+        <div class="sdc-title">Artificial Intelligence</div>
+        <p>Lumeva harnesses the power of artificial intelligence to transform how government and defense agencies operate. From predictive analytics to automated decision-support systems, we design and deploy AI solutions that enhance mission effectiveness and reduce operational risk.</p>
       </div>
-      <div class="cap-col">
-        <h4>Differentiators</h4>
-        <ul>
-          <li>Veteran-Owned Expertise: Unique blend of military discipline and strategic innovation</li>
-          <li>Advanced Certifications: CISM, CRISC, CGEIT, PMP, AWS Solutions Architect, Forrester Zero Trust Strategist, CASP+, AAISM</li>
-          <li>Proven Leadership: Experience managing multimillion-dollar defense and federal contracts</li>
-          <li>Top Secret/SCI Clearance: Secure handling of classified information</li>
-          <li>Tailored Solutions: Adaptive services for diverse client needs</li>
-          <li>Commitment to Innovation: Data-driven insights with tools like SQL and Tableau</li>
-          <li>Policy Expertise: Aligning initiatives with security and governmental goals</li>
-          <li>Service-First Ethos: Building trust through integrity and measurable success</li>
-        </ul>
+      <div class="service-detail-card">
+        <div class="sdc-index">02</div>
+        <div class="sdc-title">Cloud</div>
+        <p>Lumeva delivers secure, scalable cloud solutions tailored to the unique demands of government and defense environments. We architect, migrate, and manage cloud infrastructure across AWS, Azure, and hybrid environments while maintaining strict compliance with FedRAMP, FISMA, and DoD security requirements.</p>
+      </div>
+      <div class="service-detail-card">
+        <div class="sdc-index">03</div>
+        <div class="sdc-title">Data Solutions</div>
+        <p>Lumeva transforms raw data into actionable intelligence through advanced analytics, visualization, and data governance frameworks. Using tools such as SQL and Tableau, we help agencies consolidate disparate data sources and improve decision-making.</p>
+      </div>
+      <div class="service-detail-card">
+        <div class="sdc-index">04</div>
+        <div class="sdc-title">Cyber Operations</div>
+        <p>Lumeva provides end-to-end cybersecurity services designed to protect mission-critical systems and sensitive information from evolving threats — Zero Trust architecture, RMF implementation, threat hunting, incident response, and continuous monitoring.</p>
+      </div>
+      <div class="service-detail-card">
+        <div class="sdc-index">05</div>
+        <div class="sdc-title">System Engineering and Assistance</div>
+        <p>Lumeva's SETA services provide government clients with the technical expertise and program support needed to optimize complex systems and achieve mission success, from requirements definition through testing, integration, and sustainment.</p>
+      </div>
+      <div class="service-detail-card">
+        <div class="sdc-index">06</div>
+        <div class="sdc-title">National Security</div>
+        <p>Lumeva supports the nation's most critical security missions with strategic analysis, intelligence support, and technical solutions, drawing on direct experience with INSCOM, SOCOM, NGA, NSA, and the FBI.</p>
+      </div>
+      <div class="service-detail-card" style="grid-column: span 2;">
+        <div class="sdc-index">07</div>
+        <div class="sdc-title">Professional Services</div>
+        <p>Lumeva's professional services practice delivers the program management, policy analysis, and strategic consulting expertise that government agencies need to navigate complex challenges — from managing multimillion-dollar portfolios to crafting regulatory frameworks and organizational transformation strategies.</p>
       </div>
     </div>
-    <div class="naics-row">
-      <strong>NAICS Codes:</strong> 541330 · 541512 · 541611 · 561612 · 561621 · 541690 · 541513 · 541519 · 541511
+
+    <div class="agency-strip fade-up">
+      <div class="agency-label">Agencies &amp; Organizations We Have Served</div>
+      <div class="agency-pills">
+        <span class="agency-pill">U.S. Army</span>
+        <span class="agency-pill">U.S. Air Force</span>
+        <span class="agency-pill">NGA</span>
+        <span class="agency-pill">NSA</span>
+        <span class="agency-pill">FBI</span>
+        <span class="agency-pill">HUD</span>
+        <span class="agency-pill">SOCOM</span>
+        <span class="agency-pill">INSCOM</span>
+      </div>
     </div>
-    <div class="key-info">
-      <span><strong>UEI</strong> GXEACVKUVF33</span>
-      <span><strong>CAGE Code</strong> 0QVC5</span>
-      <span><strong>DUNS</strong> 11-803-9412</span>
-      <span><strong>Address</strong> 7901 4th St. N. #17916, Saint Petersburg, FL 33702</span>
+
+    <!-- CAPABILITY STATEMENT -->
+    <div class="capability-split fade-up">
+      <div class="capability-panel">
+        <div class="eyebrow on-dark">Capability Statement</div>
+        <h3>What Sets Us Apart</h3>
+        <div class="cap-cols">
+          <div>
+            <h5>Core Competencies</h5>
+            <ul>
+              <li>System Engineering &amp; Technical Assistance (SETA)</li>
+              <li>Cybersecurity and Risk Mitigation</li>
+              <li>Program and Project Management</li>
+              <li>Strategic Policy Analysis and Recommendations</li>
+              <li>Continuity of Operations Planning (COOP)</li>
+              <li>Advanced Data Analytics and Visualization</li>
+              <li>Federal and State Contract Management</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Differentiators</h5>
+            <ul>
+              <li>Veteran-Owned Expertise</li>
+              <li>PMP, CISM, CRISC, CGEIT, AWS SA, Forrester ZT, CASP+, AAISM</li>
+              <li>Multimillion-dollar defense &amp; federal contract leadership</li>
+              <li>Top Secret/SCI Clearance</li>
+              <li>Tailored, adaptive solutions</li>
+              <li>Data-driven insight with SQL and Tableau</li>
+              <li>Service-first ethos built on integrity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="capability-image">
+        <img src="images/server-room.jpg" alt="Secure infrastructure" />
+      </div>
+      <div class="key-info-bar">
+        <span><strong>UEI</strong>GXEACVKUVF33</span>
+        <span><strong>CAGE Code</strong>0QVC5</span>
+        <span><strong>DUNS</strong>11-803-9412</span>
+        <span><strong>Address</strong>7901 4th St. N. #17916, Saint Petersburg, FL 33702</span>
+      </div>
+      <div class="naics-line"><strong>NAICS Codes:</strong> 541330 · 541512 · 541611 · 561612 · 561621 · 541690 · 541513 · 541519 · 541511</div>
+    </div>
+    <div style="text-align:center; margin-top:44px;">
+      <a href="Lumeva-Capability-Statement.pdf" class="btn" target="_blank">Download Capability Statement</a>
     </div>
   </div>
 </section>
 
 <!-- LIFE AT LUMEVA -->
 <section id="life">
-  <div class="section-label">Our Culture</div>
-  <h2 class="section-title">Life at Lumeva</h2>
-
-  <div class="life-grid fade-up">
-    <div class="life-card">
-      <h4>Who We Are as a Team</h4>
-      <p>At Lumeva, we believe our people are our most powerful asset. As a veteran-owned, mission-driven organization, we're committed to pushing boundaries, championing innovation, and creating secure, efficient solutions for government and defense agencies.</p>
+  <div class="wrap">
+    <div class="block-head fade-up">
+      <div class="eyebrow">Our Culture</div>
+      <h2 class="section-title">Life at Lumeva</h2>
     </div>
-    <div class="life-card">
-      <h4>Flexibility And Well-Being</h4>
-      <p>Our employees and their well-being come first, which is why we offer various flexible work options and competitive leave programs. Our goal is to accommodate you and your busy schedule - personally and professionally - to achieve optimal success and job satisfaction.</p>
-      <p style="margin-top:12px;"><strong>Well-Being Resources:</strong> Our Live Well. Be Well. Wellness program offers a wide variety of activities to encourage a well-balanced, healthy lifestyle. Employees can earn points by engaging in health actions and activities that translate into a monthly wellness credit and quarterly prize drawings.</p>
-    </div>
-  </div>
 
-  <!-- CULTURE -->
-  <div class="culture-section fade-up">
-    <h3>Culture</h3>
-    <div class="culture-grid">
-      <div class="culture-card">
-        <h5>Integrity & Accountability</h5>
-        <p>Guided by strong ethics and a commitment to excellence, we hold ourselves to the highest standards, ensuring trust and reliability with every solution we deliver. You can trust our integrity and accountability, knowing we strive for excellence.</p>
+    <div class="life-grid fade-up">
+      <div class="card-flat">
+        <h4>Who We Are as a Team</h4>
+        <p>At Lumeva, we believe our people are our most powerful asset. As a veteran-owned, mission-driven organization, we're committed to pushing boundaries, championing innovation, and creating secure, efficient solutions for government and defense agencies.</p>
       </div>
-      <div class="culture-card">
-        <h5>Innovation & Excellence</h5>
-        <p>We leverage the latest technologies and best practices to deliver solutions that exceed expectations, constantly pushing the boundaries of what's possible in government and defense contracting.</p>
-      </div>
-      <div class="culture-card">
-        <h5>Mission-Driven</h5>
-        <p>Every project we undertake is driven by a commitment to mission success. We understand the critical nature of the work our clients perform and we take that responsibility seriously.</p>
+      <div class="card-flat">
+        <h4>Flexibility and Well-Being</h4>
+        <p>Our employees and their well-being come first, which is why we offer flexible work options and competitive leave programs. Our Live Well. Be Well. Wellness program offers activities that translate into monthly wellness credits and quarterly prize drawings.</p>
       </div>
     </div>
-  </div>
 
-  <!-- POINTS OF PRIDE -->
-  <div class="pride-section fade-up">
-    <h3>Points of Pride</h3>
-    <div class="pride-grid">
-      <div class="pride-card">
-        <div class="num">01</div>
-        <p>Veteran-owned and operated, bringing military discipline, strategic thinking, and a service-first ethos to every engagement with government and defense agencies.</p>
-      </div>
-      <div class="pride-card">
-        <div class="num">02</div>
-        <p>Our team holds Top Secret/SCI clearances and advanced certifications including PMP, CISM, AWS Solutions Architect, and CFCM - ensuring secure, expert execution on every project.</p>
-      </div>
-      <div class="pride-card">
-        <div class="num">03</div>
-        <p>We embrace cutting-edge technologies such as advanced data analytics and cloud computing to deliver solutions that propel government agencies and defense sectors into the future.</p>
+    <div class="fade-up" style="margin-bottom:90px;">
+      <div class="block-head"><h3>Culture</h3></div>
+      <div class="culture-grid">
+        <div class="card-flat">
+          <h5>Integrity &amp; Accountability</h5>
+          <p>Guided by strong ethics and a commitment to excellence, we hold ourselves to the highest standards, ensuring trust and reliability with every solution we deliver.</p>
+        </div>
+        <div class="card-flat">
+          <h5>Innovation &amp; Excellence</h5>
+          <p>We leverage the latest technologies and best practices to deliver solutions that exceed expectations, constantly pushing the boundaries of what's possible.</p>
+        </div>
+        <div class="card-flat">
+          <h5>Mission-Driven</h5>
+          <p>Every project we undertake is driven by a commitment to mission success. We understand the critical nature of the work our clients perform.</p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- GIVING BACK -->
-  <div class="giving-section fade-up">
-    <h3>Lumeva Gives Back - A History of Giving</h3>
-    <p>Since the beginning, we've been committed to uplifting underdeveloped communities. We proudly donate 5% of our annual profit to the Helping Light Foundation, supporting orphaned and struggling children in Togo.</p>
+    <div class="fade-up" style="margin-bottom:90px;">
+      <div class="block-head"><h3>Points of Pride</h3></div>
+      <div class="pride-grid">
+        <div class="pride-card">
+          <div class="num">01</div>
+          <p>Veteran-owned and operated, bringing military discipline, strategic thinking, and a service-first ethos to every engagement with government and defense agencies.</p>
+        </div>
+        <div class="pride-card">
+          <div class="num">02</div>
+          <p>Our team holds Top Secret/SCI clearances and advanced certifications including PMP, CISM, AWS Solutions Architect, and CFCM.</p>
+        </div>
+        <div class="pride-card">
+          <div class="num">03</div>
+          <p>We embrace cutting-edge technologies such as advanced data analytics and cloud computing to deliver forward-looking solutions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="giving-section fade-up">
+      <h3>Lumeva Gives Back</h3>
+      <p>Since the beginning, we've been committed to uplifting underdeveloped communities. We proudly donate 5% of our annual profit to the Helping Light Foundation, supporting orphaned and struggling children in Togo.</p>
+    </div>
   </div>
 </section>
 
 <!-- BENEFITS -->
 <section id="benefits">
-  <div class="section-label" style="text-align:center;">Why Join Us</div>
-  <h2 class="section-title">Benefits</h2>
-  <div class="benefits-grid fade-up">
-    <div class="benefit-block">
-      <h4>Compensation & Financial</h4>
-      <div class="benefit-item"><span class="benefit-text">Competitive salaries aligned with federal contractor market rates</span></div>
-      <div class="benefit-item"><span class="benefit-text">Performance-based bonuses and incentive programs</span></div>
-      <div class="benefit-item"><span class="benefit-text">401(k) retirement plan with company contributions</span></div>
-      <div class="benefit-item"><span class="benefit-text">Professional development and certification reimbursement</span></div>
+  <div class="wrap">
+    <div class="center-head fade-up" style="margin-bottom:60px;">
+      <div class="eyebrow center">Why Join Us</div>
+      <h2 class="section-title">Benefits</h2>
+      <div class="accent-bar center"></div>
     </div>
-    <div class="benefit-block">
-      <h4>Health & Wellness</h4>
-      <div class="benefit-item"><span class="benefit-text">Comprehensive medical, dental, and vision coverage</span></div>
-      <div class="benefit-item"><span class="benefit-text">Live Well. Be Well. Wellness program with monthly credits and quarterly prize drawings</span></div>
-      <div class="benefit-item"><span class="benefit-text">Mental health and employee assistance programs</span></div>
-      <div class="benefit-item"><span class="benefit-text">Flexible work arrangements and competitive leave programs</span></div>
-    </div>
-    <div class="benefit-block">
-      <h4>Growth & Development</h4>
-      <div class="benefit-item"><span class="benefit-text">Mentoring programs that match you with an advisor based on your interests and needs</span></div>
-      <div class="benefit-item"><span class="benefit-text">Early career professional, leadership, and management programs</span></div>
-      <div class="benefit-item"><span class="benefit-text">Cross-company collaboration and networking activities with executive leaders</span></div>
-      <div class="benefit-item"><span class="benefit-text">Tuition assistance and continuing education support</span></div>
-    </div>
-    <div class="benefit-block">
-      <h4>Innovative Perks</h4>
-      <div class="benefit-item"><span class="benefit-text">Opportunities to work on mission-critical government and defense projects</span></div>
-      <div class="benefit-item"><span class="benefit-text">Clearance sponsorship and support for eligible positions</span></div>
-      <div class="benefit-item"><span class="benefit-text">Collaborative, inclusive, and veteran-friendly workplace culture</span></div>
-      <div class="benefit-item"><span class="benefit-text">Access to cutting-edge technologies including AI, cloud, and data analytics</span></div>
+    <div class="benefits-grid fade-up">
+      <div class="benefit-block">
+        <h4>Compensation</h4>
+        <div class="benefit-item">Competitive salaries aligned with federal contractor market rates</div>
+        <div class="benefit-item">Performance-based bonuses and incentive programs</div>
+        <div class="benefit-item">401(k) retirement plan with company contributions</div>
+        <div class="benefit-item">Certification reimbursement</div>
+      </div>
+      <div class="benefit-block">
+        <h4>Health &amp; Wellness</h4>
+        <div class="benefit-item">Comprehensive medical, dental, and vision coverage</div>
+        <div class="benefit-item">Live Well. Be Well. Wellness program</div>
+        <div class="benefit-item">Mental health and employee assistance programs</div>
+        <div class="benefit-item">Flexible work arrangements</div>
+      </div>
+      <div class="benefit-block">
+        <h4>Growth</h4>
+        <div class="benefit-item">Mentoring programs matched to your interests</div>
+        <div class="benefit-item">Early career, leadership, and management programs</div>
+        <div class="benefit-item">Cross-company collaboration with executive leaders</div>
+        <div class="benefit-item">Tuition assistance</div>
+      </div>
+      <div class="benefit-block">
+        <h4>Perks</h4>
+        <div class="benefit-item">Mission-critical government and defense projects</div>
+        <div class="benefit-item">Clearance sponsorship for eligible positions</div>
+        <div class="benefit-item">Collaborative, veteran-friendly workplace</div>
+        <div class="benefit-item">Access to AI, cloud, and data analytics tools</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- CAREERS -->
 <section id="careers">
-  <div class="careers-inner">
-    <div class="life-hero fade-up">
-      <h2>Join Our Team</h2>
-      <p>At Lumeva, we believe our people are our most powerful asset. As a veteran-owned, mission-driven organization, we're committed to pushing boundaries, championing innovation, and creating secure, efficient solutions for government and defense agencies.</p>
-      <a href="#contact" class="btn-primary">View Opportunities</a>
-    </div>
-    <div class="jobs-section fade-up">
-      <div class="jobs-left">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" alt="Careers at Lumeva" style="width:100%; height:260px; object-fit:cover;" />
-      </div>
-      <div class="jobs-right">
-        <div class="sublabel">Search and View Jobs</div>
-        <h3>Be Part of the Moment Our Creative Community.</h3>
-        <p>Discover Your Next Opportunity! Explore tailored career paths, connect with top employers, and land the job you've been dreaming of. Start your journey today!</p>
-        <a href="#contact" class="btn-primary">Career &nbsp;›</a>
+  <div class="wrap">
+    <div class="careers-flex fade-up">
+      <img src="images/careers-photo.jpg" alt="Careers at Lumeva" />
+      <div class="careers-copy">
+        <div class="eyebrow on-dark">Careers</div>
+        <h2>Join Our Team</h2>
+        <p>At Lumeva, we believe our people are our most powerful asset. As a veteran-owned, mission-driven organization, we're committed to pushing boundaries, championing innovation, and creating secure, efficient solutions for government and defense agencies.</p>
+        <a href="#contact" class="btn">View Opportunities</a>
       </div>
     </div>
   </div>
@@ -1154,78 +658,96 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="section-label" style="text-align:center;">Get In Touch</div>
-  <h2 class="section-title">Contact Us</h2>
-  <div class="contact-info">
-    <div class="contact-info-item"><span class="ci-label">Address:</span><div>7901 4th St. N. #17916<br>Saint Petersburg, FL 33702</div></div>
-    <div class="contact-info-item"><span class="ci-label">Phone:</span><div>+1 813 786 0818</div></div>
-    <div class="contact-info-item"><span class="ci-label">Email:</span><div>info@lumeva-inc.com</div></div>
-    <div class="contact-info-item"><span class="ci-label">Web:</span><div><a href="https://lumeva.tech" style="color:var(--navy); font-weight:600;">lumeva.tech</a></div></div>
-  </div>
-  <div class="contact-inner">
-    <div class="contact-form">
-      <input type="text" placeholder="Your Name" />
-      <input type="email" placeholder="Your Email" />
+  <div class="wrap">
+    <div class="center-head fade-up" style="margin-bottom:50px;">
+      <div class="eyebrow center">Get In Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+    </div>
+    <div class="contact-info fade-up">
+      <div class="contact-info-item"><span class="ci-label">Address</span>7901 4th St. N. #17916<br>Saint Petersburg, FL 33702</div>
+      <div class="contact-info-item"><span class="ci-label">Phone</span>+1 813 786 0818</div>
+      <div class="contact-info-item"><span class="ci-label">Email</span>info@lumeva-inc.com</div>
+      <div class="contact-info-item"><span class="ci-label">Web</span><a href="https://lumeva.tech" style="color:var(--navy); font-weight:600;">lumeva.tech</a></div>
+    </div>
+    <div class="contact-form fade-up">
+      <div class="contact-form-row">
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+      </div>
       <input type="text" placeholder="Subject" />
       <textarea placeholder="Your Message"></textarea>
-      <button type="button">Send Message</button>
+      <div style="text-align:center;">
+        <button type="button" class="btn">Send Message</button>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
 <div class="newsletter">
-  <div>
-    <h3>Newsletter Sign Up</h3>
-    <p>Be the first to receive updates about Lumeva news, events, and innovations.</p>
-  </div>
-  <div class="newsletter-form">
-    <input type="email" placeholder="Email" />
-    <button>Sign up</button>
+  <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+    <div>
+      <h3>Newsletter Sign Up</h3>
+      <p>Be the first to receive updates about Lumeva news, events, and innovations.</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Email" />
+      <button>Sign up</button>
+    </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-about">
-      <div class="footer-logo">
-        <img src="images/logo-white.png" alt="Lumeva" />
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="footer-logo"><img src="images/logo-white.png" alt="Lumeva" /></div>
+        <p>Our mission is to empower government and defense agencies with innovative, secure, and efficient solutions that drive mission success while fostering trust, collaboration, and sustainable development.</p>
+        <a href="https://linkedin.com" class="linkedin-icon" target="_blank">in</a>
       </div>
-      <p>Our Mission is to empower government and defense agencies with innovative, secure, and efficient solutions that drive mission success while fostering trust, collaboration, and sustainable development.</p>
-      <a href="https://linkedin.com" class="linkedin-icon" target="_blank">in</a>
-    </div>
-    <div class="footer-links">
-      <h4>Useful links</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#who">Who We Are</a></li>
-        <li><a href="#services">What We Do</a></li>
-        <li><a href="#life">Life at Lumeva</a></li>
-        <li><a href="#benefits">Benefits</a></li>
-        <li><a href="#careers">Careers</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-contact">
-      <h4>Contact us</h4>
-      <div class="footer-contact-item"><span class="ci-label">Address:</span><span>7901 4th St. N. #17916 Saint Petersburg, FL 33702</span></div>
-      <div class="footer-contact-item"><span class="ci-label">Phone:</span><span>+1 813 786 0818</span></div>
-      <div class="footer-contact-item"><span class="ci-label">Email:</span><span>info@lumeva-inc.com</span></div>
-      <div class="footer-contact-item"><span class="ci-label">Web:</span><span><a href="https://lumeva.tech" style="color:rgba(255,255,255,0.8);">lumeva.tech</a></span></div>
-    </div>
-    <div class="footer-badges">
-      <div class="badge-row">
-        <img src="images/badge-navoba-white.png" alt="NaVOBA Certified" style="height:70px; width:auto;" />
-        <img src="images/badge-sdvosb.png" alt="SBA Service-Disabled Veteran-Owned Certified" style="height:70px; width:auto;" />
-        <img src="images/badge-mbe.png" alt="NMSDC MBE Certified" style="height:70px; width:auto;" />
+      <div class="footer-links">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#who">Who We Are</a></li>
+          <li><a href="#services">What We Do</a></li>
+          <li><a href="#life">Life at Lumeva</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-item"><span class="ci-label">Address</span>7901 4th St. N. #17916, Saint Petersburg, FL 33702</div>
+        <div class="footer-contact-item"><span class="ci-label">Phone</span>+1 813 786 0818</div>
+        <div class="footer-contact-item"><span class="ci-label">Email</span>info@lumeva-inc.com</div>
+        <div class="footer-contact-item"><span class="ci-label">Web</span><a href="https://lumeva.tech" style="color:rgba(255,255,255,0.65);">lumeva.tech</a></div>
+      </div>
+      <div class="footer-badges">
+        <h4>Certifications</h4>
+        <div class="badge-row">
+          <div class="badge-chip"><img src="images/badge-navoba-white.png" alt="NaVOBA Certified" /></div>
+          <div class="badge-chip"><img src="images/badge-sdvosb.png" alt="SBA Service-Disabled Veteran-Owned Certified" /></div>
+          <div class="badge-chip"><img src="images/badge-mbe.png" alt="NMSDC MBE Certified" /></div>
+          <div class="badge-chip"><img src="images/badge-nvbdc.jpg" alt="NVBDC Certified Service-Disabled Veteran Owned Business" /></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lumeva LLC. All rights reserved.</span>
+      <a href="https://lumeva.tech">lumeva.tech</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Lumeva LLC. All rights reserved.</div>
 </footer>
 
 <script>
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.querySelector('nav ul');
+  navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav ul a');
   window.addEventListener('scroll', () => {
