@@ -108,6 +108,23 @@
     margin-bottom: 32px;
   }
   .hero-tag::before { content: ''; width: 24px; height: 2px; background: var(--blue-light); margin-right: 12px; }
+
+  /* PAGE HEADER (interior pages) */
+  .page-header {
+    position: relative; min-height: 280px; display: flex; align-items: center;
+    overflow: hidden; background-size: cover; background-position: center;
+  }
+  .page-header::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(5,10,36,0.88) 0%, rgba(5,10,36,0.8) 45%, rgba(5,10,36,0.94) 100%),
+      linear-gradient(100deg, rgba(5,10,36,0.5) 0%, transparent 55%);
+  }
+  .page-header .wrap { position: relative; z-index: 2; }
+  .page-header .eyebrow.on-dark { margin-bottom: 12px; }
+  .page-header h1 {
+    font-size: 46px; color: white; text-transform: uppercase; letter-spacing: -0.5px;
+  }
   .hero-content h1 {
     font-size: 72px; font-weight: 800; color: white; line-height: 0.98; margin-bottom: 26px;
     text-transform: uppercase; letter-spacing: -0.5px;
@@ -294,6 +311,8 @@
   @media (max-width: 900px) {
     nav { padding: 0 20px; }
     .nav-toggle { display: flex; }
+    .page-header { min-height: 200px; }
+    .page-header h1 { font-size: 34px; }
     nav ul {
       display: none; position: absolute; top: 76px; left: 0; right: 0; background: var(--navy);
       flex-direction: column; align-items: flex-start; gap: 0; padding: 10px 20px 20px;
