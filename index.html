@@ -102,9 +102,9 @@
   #home {
     min-height: 660px; display: flex; align-items: center; position: relative; overflow: hidden;
   }
-  .hero-photo {
+  .hero-video {
     position: absolute; inset: 0; z-index: 0;
-    background-image: url('images/hero-earth.jpg'); background-size: cover; background-position: center;
+    width: 100%; height: 100%; object-fit: cover;
   }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 1;
@@ -192,9 +192,9 @@
 
   /* SERVICES */
   #services { padding: 110px 0; background: var(--bg-soft); }
-  .services-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 60px; }
-  .service-detail-card { background: white; padding: 40px; border-top: 3px solid transparent; transition: border-color .2s, transform .2s; position: relative; }
-  .service-detail-card:hover { border-top-color: var(--blue); transform: translateY(-2px); }
+  .services-detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 60px; }
+  .service-detail-card { background: white; padding: 40px; box-shadow: 0 2px 14px rgba(10,20,64,0.05); transition: box-shadow .2s, transform .2s; position: relative; }
+  .service-detail-card:hover { box-shadow: 0 16px 30px rgba(10,20,64,0.1); transform: translateY(-2px); }
   .sdc-index { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; color: var(--slate-light); letter-spacing: 1px; margin-bottom: 10px; }
   .sdc-title { font-size: 24px; margin-bottom: 12px; }
   .service-detail-card p { font-size: 14.5px; line-height: 1.8; color: var(--slate); }
@@ -205,12 +205,12 @@
   .agency-pill {
     display: flex; align-items: center; gap: 10px;
     font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px;
-    text-transform: uppercase; color: var(--navy); border: 1px solid var(--line); background: white;
+    text-transform: uppercase; color: var(--navy); background: white;
     padding: 12px 22px 12px 16px; border-radius: 3px;
-    box-shadow: 0 2px 10px rgba(10,20,64,0.05);
-    transition: transform .2s, box-shadow .2s, border-color .2s;
+    box-shadow: 0 2px 10px rgba(10,20,64,0.08);
+    transition: transform .2s, box-shadow .2s;
   }
-  .agency-pill:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(10,20,64,0.12); border-color: var(--blue); }
+  .agency-pill:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(10,20,64,0.15); }
   .agency-pill .badge-icon {
     flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
     background: linear-gradient(135deg, var(--indigo), var(--blue));
@@ -243,14 +243,14 @@
   .life-grid, .culture-grid, .pride-grid, .benefits-grid { display: grid; gap: 24px; }
   .life-grid { grid-template-columns: 1fr 1fr; margin-bottom: 90px; }
   .culture-grid, .pride-grid { grid-template-columns: repeat(3, 1fr); }
-  .card-flat { border: 1px solid var(--line); padding: 32px; transition: border-color .2s, transform .2s; }
-  .card-flat:hover { border-color: var(--blue); transform: translateY(-3px); }
+  .card-flat { background: var(--bg-soft); padding: 32px; transition: box-shadow .2s, transform .2s; }
+  .card-flat:hover { box-shadow: 0 16px 30px rgba(10,20,64,0.08); transform: translateY(-3px); }
   .card-flat h4, .card-flat h5 { font-size: 21px; margin-bottom: 12px; }
   .card-flat p { font-size: 15px; color: var(--slate); }
   .block-head { margin-bottom: 36px; }
   .block-head h3 { font-size: 30px; text-transform: uppercase; }
 
-  .pride-card { border: 1px solid var(--line); padding: 32px; }
+  .pride-card { background: var(--bg-soft); padding: 32px; }
   .pride-card .num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 800; color: var(--blue); opacity: 0.35; line-height: 1; margin-bottom: 10px; }
   .pride-card p { font-size: 14.5px; color: var(--slate); line-height: 1.8; }
 
@@ -262,7 +262,7 @@
   #benefits { padding: 110px 0; background: var(--bg-soft); }
   .benefits-grid { grid-template-columns: repeat(4, 1fr); }
   .benefit-block h4 { font-size: 16px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--navy); font-family: 'Inter', sans-serif; font-weight: 700; color: var(--navy); }
-  .benefit-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--slate); line-height: 1.6; }
+  .benefit-item { display: flex; gap: 10px; padding: 9px 0; font-size: 14px; color: var(--slate); line-height: 1.6; }
   .benefit-item::before { content: '-'; color: var(--blue); font-weight: 700; }
 
   /* CAREERS */
@@ -379,7 +379,9 @@
 
 <!-- HERO -->
 <section id="home">
-  <div class="hero-photo"></div>
+  <video class="hero-video" autoplay muted loop playsinline poster="images/hero-video-poster.jpg">
+    <source src="images/hero-video.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="floating-blob"></div>
   <div class="floating-blob two"></div>
@@ -670,7 +672,6 @@
       <div class="benefit-block">
         <h4>Perks</h4>
         <div class="benefit-item">Mission-critical government and defense projects</div>
-        <div class="benefit-item">Clearance sponsorship for eligible positions</div>
         <div class="benefit-item">Collaborative, veteran-friendly workplace</div>
         <div class="benefit-item">Access to AI, cloud, and data analytics tools</div>
       </div>
