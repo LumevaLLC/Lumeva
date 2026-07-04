@@ -129,7 +129,7 @@
   }
   .hero-sub { font-size: 18px; color: rgba(255,255,255,0.68); line-height: 1.8; max-width: 560px; margin-bottom: 40px; }
   .hero-buttons { display: flex; gap: 18px; align-items: center; margin-bottom: 64px; flex-wrap: wrap; }
-  .hero-stats { display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px; max-width: 680px; }
+  .hero-stats { display: flex; gap: 0; padding-top: 32px; max-width: 680px; }
   .hero-stat { flex: 1; padding-right: 24px; border-right: 1px solid rgba(255,255,255,0.15); }
   .hero-stat:last-child { border-right: none; }
   .hero-stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 800; color: white; display: block; line-height: 1; margin-bottom: 6px; }
@@ -170,16 +170,15 @@
 
   /* MISSION / VISION */
   .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 0 0 100px; }
-  .mv-card { border: 1px solid var(--line); padding: 40px; }
+  .mv-card { padding: 40px; background: var(--bg-soft); }
   .mv-card h4 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; font-family: 'Inter', sans-serif; font-weight: 700; }
   .mv-card p { font-size: 16px; color: var(--slate); }
 
   /* LEADERSHIP */
   .leadership-head { margin-bottom: 44px; }
   .leader-card {
-    display: flex; gap: 34px; padding: 40px 0; border-top: 1px solid var(--line);
+    display: flex; gap: 34px; padding: 40px 0;
   }
-  .leader-card:last-child { border-bottom: 1px solid var(--line); }
   .avatar {
     flex: 0 0 84px; width: 84px; height: 84px; border-radius: 50%;
     background: linear-gradient(135deg, var(--indigo), var(--blue));
@@ -218,6 +217,8 @@
     display: flex; align-items: center; justify-content: center;
   }
   .agency-pill .badge-icon svg { width: 12px; height: 12px; fill: white; }
+  .agency-pill.logo-pill { padding: 10px 22px 10px 14px; }
+  .agency-pill.logo-pill img { height: 30px; width: 30px; object-fit: contain; flex-shrink: 0; }
 
   /* CAPABILITY SPLIT */
   .capability-split { display: grid; grid-template-columns: 1.2fr 1fr; background: var(--navy); }
@@ -384,7 +385,7 @@
   <div class="floating-blob two"></div>
   <div class="wrap">
     <div class="hero-content">
-      <div class="hero-tag">Veteran-Owned, TS/SCI Cleared, Federal and Defense</div>
+      <div class="hero-tag">Veteran-Owned, Cleared, Federal, Defense, and Civilian</div>
       <h1>Innovating Solutions, <em>Empowering Communities.</em></h1>
       <p class="hero-sub">Delivering mission-critical cybersecurity, Zero Trust strategy, and enterprise risk solutions to government and defense agencies nationwide.</p>
       <div class="hero-buttons">
@@ -514,14 +515,14 @@
     <div class="agency-strip fade-up">
       <div class="agency-label">Agencies &amp; Organizations We Have Served</div>
       <div class="agency-pills">
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>U.S. Army</span>
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>U.S. Air Force</span>
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>NGA</span>
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>NSA</span>
+        <span class="agency-pill logo-pill"><img src="images/army.svg" alt="U.S. Army" />U.S. Army</span>
+        <span class="agency-pill logo-pill"><img src="images/airforce.png" alt="U.S. Air Force" />U.S. Air Force</span>
+        <span class="agency-pill logo-pill"><img src="images/nga.svg" alt="NGA" />NGA</span>
+        <span class="agency-pill logo-pill"><img src="images/nsa.svg" alt="NSA" />NSA</span>
         <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>FBI</span>
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>HUD</span>
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>SOCOM</span>
-        <span class="agency-pill"><span class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1l2.6 6.6 7.1.3-5.6 4.4 2 6.9L12 15l-6.1 4.2 2-6.9L2.3 7.9l7.1-.3z"/></svg></span>INSCOM</span>
+        <span class="agency-pill logo-pill"><img src="images/hud.svg" alt="HUD" />HUD</span>
+        <span class="agency-pill logo-pill"><img src="images/socom.svg" alt="SOCOM" />SOCOM</span>
+        <span class="agency-pill logo-pill"><img src="images/inscom.svg" alt="INSCOM" />INSCOM</span>
       </div>
     </div>
 
