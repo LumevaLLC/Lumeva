@@ -135,29 +135,6 @@
   .hero-stat .num { font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 800; color: white; display: block; line-height: 1; margin-bottom: 6px; }
   .hero-stat .label { font-size: 10.5px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.55); }
 
-  .floating-blob {
-    position: absolute; z-index: 2; pointer-events: none;
-    width: 480px; height: 480px; top: 4%; right: -60px;
-    background: linear-gradient(135deg, rgba(108,139,255,0.65), rgba(52,87,230,0.35));
-    filter: blur(50px);
-    animation: blob-float 16s ease-in-out infinite;
-  }
-  .floating-blob.two {
-    width: 320px; height: 320px; top: auto; bottom: 0%; left: -40px; right: auto;
-    background: linear-gradient(135deg, rgba(52,87,230,0.5), rgba(108,139,255,0.25));
-    filter: blur(45px);
-    animation: blob-float 20s ease-in-out infinite reverse;
-  }
-  @keyframes blob-float {
-    0%   { border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%; transform: translate(0,0) scale(1); }
-    25%  { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: translate(-30px, 40px) scale(1.06); }
-    50%  { border-radius: 35% 65% 55% 45% / 40% 60% 40% 60%; transform: translate(15px, -30px) scale(0.96); }
-    75%  { border-radius: 55% 45% 40% 60% / 55% 45% 65% 35%; transform: translate(-20px, 15px) scale(1.03); }
-    100% { border-radius: 42% 58% 65% 35% / 45% 45% 55% 55%; transform: translate(0,0) scale(1); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .floating-blob { animation: none; }
-  }
 
   /* FEATURE ROW (image + text alternating) */
   .feature-row { display: flex; align-items: center; gap: 72px; padding: 100px 0; }
@@ -383,8 +360,6 @@
     <source src="images/hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
-  <div class="floating-blob"></div>
-  <div class="floating-blob two"></div>
   <div class="wrap">
     <div class="hero-content">
       <div class="hero-tag">Veteran-Owned, Cleared, Federal, Defense, and Civilian</div>
